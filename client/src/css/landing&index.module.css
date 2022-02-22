@@ -1,0 +1,70 @@
+.initial{
+    background-image: url('https://tastebotte.com/wp-content/uploads/2020/01/our-story.jpg');
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+}
+
+.details{
+	font-family: "Courier New", Courier, monospace;
+	font-size: 18px;
+	letter-spacing: -2px;
+	word-spacing: -3.6px;
+	color: #000000;
+	font-weight: 400;
+	text-decoration: none solid rgb(68, 68, 68);
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+}
+
+.landing{
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	background-color:#2e466e;
+	border-radius:17px;
+	border:1px solid #1f2f47;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.landing:hover {
+	background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+	background-color:#415989;
+}
+.landing:active {
+	position:relative;
+	top:1px;
+}
+
+.lanTitle{
+font-family: Lucida Sans Unicode;
+color: #ffffff;
+font-size: 30px; 
+text-transform: uppercase; 
+font-weight: bold; 
+font-style: italic; 
+text-shadow: 4px 3px 0px #7A7A7A;
+}
+.imageDetail{
+    border-radius: 7px;
+}
+.container{
+	width: 350px;
+	border: 2px solid #000000;
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+	height: 550px;
+}
+.image{
+	width: 320px;
+	margin: auto;
+}

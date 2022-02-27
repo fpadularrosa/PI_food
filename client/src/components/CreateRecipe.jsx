@@ -5,8 +5,9 @@ import { getDiets, postRecipe } from "../redux/actions";
 import { connect } from "react-redux";
 import c from '../css/CreateRecipe.module.css';
 import { Link } from "react-router-dom";
+import minion from '../chef_minions.png'
 
-const CreateRecipe = (props) => {
+const CreateRecipe = props => {
     
     const [state, setState] = useState({
         name: "",
@@ -15,6 +16,7 @@ const CreateRecipe = (props) => {
         score: "",
         healthScore: "",
         steps: "",
+        dishtype: '',
         diets: []
     })
 
@@ -53,7 +55,7 @@ const CreateRecipe = (props) => {
 
     useEffect(() => {
         setErrors(validate(state))
-    },[state.name, state.summary, state.score, state.healthScore, state.steps, state.diets])
+    },[state.name, state.summary, state.score, state.healthScore, state.steps, state.diets, state.dishtype])
 
 
     return(
@@ -62,48 +64,55 @@ const CreateRecipe = (props) => {
         <Link to='/home'>
             <button className={c.back}>BACK</button>
         </Link>
-        <h2 className={c.create}>CREATE RECIPES</h2>
+        <h1 className={c.create}>CREATE RECIPES!</h1>
+        <div className={c.minion}><img src={minion}></img></div>
         <form className={c.form} onSubmit={handleSubmit}>
             <div className="inputs">
-                <label>Name:</label> <br></br>
+                <label className={c.label}>Name:</label> <br></br>
                 <input className={`${c.inputs} ${errors.name && c.danger}`} name="name" value={state.name} onChange={handleChange} /> 
                 {errors.name && <span>{errors.name}</span>}
             </div>
 
             <div className="inputs">
-                <label>Summary:</label> <br></br>
+                <label className={c.label}>Dish type:</label> <br></br>
+                <input className={`${c.inputs} ${errors.image && c.danger}` } name="dishtype" value={state.dishtype} placeholder='dish type...' onChange={handleChange} /> <br></br>
+                {errors.dishtype && <span>{errors.dishtype}</span>}
+            </div>
+
+            <div className="inputs">
+                <label className={c.label}>Summary:</label> <br></br>
                 <input className={`${c.inputs} ${errors.summary && c.danger}` } name="summary" value={state.summary} placeholder='overview...' onChange={handleChange} /> 
                 {errors.summary && <span>{errors.summary}</span>}
             </div>
 
             <div className="inputs">
-                <label>Score:</label> <br></br>
+                <label className={c.label}>Score:</label> <br></br>
                 <input className={`${c.inputs} ${errors.score && c.danger}` } name="score" value={state.score} placeholder='food rating...' onChange={handleChange} /> <br></br>
                 {errors.score && <span>{errors.score}</span>}
             </div>
 
             <div className="inputs">
-                <label>Health score:</label> <br></br>
+                <label className={c.label}>Health score:</label> <br></br>
                 <input className={`${c.inputs} ${errors.healthScore && c.danger}` } name="healthScore" value={state.healthScore} placeholder='healthy...' onChange={handleChange} /> <br></br>
                 {errors.healthScore && <span>{errors.healthScore}</span>}
             </div>
 
             <div className="inputs">
-                <label>Instructions:</label> <br></br>
+                <label className={c.label}>Steps:</label> <br></br>
                 <input className={`${c.inputs} ${errors.steps && c.danger}` } name="steps" value={state.steps} placeholder='steps...' onChange={handleChange} /> <br></br>
                 {errors.steps && <span>{errors.steps}</span>}
             </div>
 
             <div className="inputs">
-                <label>Image:</label> <br></br>
-                <input className={`${c.inputs} ${errors.image && c.danger}` } name="image" value={state.image} placeholder='url image...' onChange={handleChange} /> <br></br>
+                <label className={c.label}>Image:</label> <br></br>
+                <input className={`${c.inputs} ${errors.image && c.danger}` } name="image" value={state.image} placeholder='url...' onChange={handleChange} /> <br></br>
                 {errors.image && <span>{errors.image}</span>}
             </div>
 
             <div className="inputs">
                     <p>Diets:</p>
                     <select className={c.inputs} name='diets' onChange={handleSelectChange}>
-                        {props.diets?.map(diet => <option key={diet.id} value={diet.id}>{diet.name}</option>)}                        
+                        {props.diets?.map(diet => <option key={diet.id} value={diet.name}>{diet.name}</option>)}                        
                     </select>
                     {errors.diets && <span>{errors.diets}</span>}
                 </div>
@@ -118,7 +127,8 @@ const CreateRecipe = (props) => {
 
 const mapStateToProps = state => {
     return{
-        diets: state.diets
+        diets: state.diets,
+
      }
 }
 

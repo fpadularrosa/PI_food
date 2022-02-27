@@ -16,32 +16,47 @@
     height: 25px;
 }
 .danger{
-    border:2px solid Tomato;
+    border:1.5px solid Tomato;
     border-radius: 2%;
 }
-.h4{
+.p1{
     margin-top: 0%;
     font-size: smaller;
 }
 .back{
-	border: solid 2px transparent;
-    margin-right: 85%;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    font-size: 0.9rem;
+    margin-right: 1000px;
 }
 .back:hover{
     transition: background-color 0.25s;
+    cursor: pointer;
+    color: #FFF;
+    background-color: #303030;
 }
         
 .create{
-	color: #303030;
-	text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    color: #333333;
+    background: #FFFFFF;
+    text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
 }
         
 .fondo{
-    background-image: url('https://thumbs.dreamstime.com/z/frame-fresh-vegetables-fruits-isolated-white-background-copy-space-text-144187130.jpg');
+    background-image: url(../lg.jpg);
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+}
+
+.minion img{
+    position: absolute;
+    width: 20%;
+    left: 10px;
+    bottom: -100px;
 }
 
 .btn{
@@ -57,4 +72,8 @@
     cursor: pointer;
     color: rgb(255, 255, 255);
     background-color: #303030;
+}
+.label{
+    font-size: 1.1rem;
+    color: #303030;
 }

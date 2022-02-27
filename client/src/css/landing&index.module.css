@@ -7,17 +7,24 @@
     top: 0;
 }
 
-.details{
-	font-family: "Courier New", Courier, monospace;
-	font-size: 18px;
-	letter-spacing: -2px;
-	word-spacing: -3.6px;
-	color: #000000;
-	font-weight: 400;
-	text-decoration: none solid rgb(68, 68, 68);
-	font-style: normal;
+.name{
+	font-family: Tahoma, 'Geneva', sans-serif;
+	color: #333333;
+	text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
+	font-style: italic;
 	font-variant: normal;
-	text-transform: none;
+}
+
+
+.details{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 17px;
+	letter-spacing: -0.4px;
+	word-spacing: 2px;
+	color: #000000;
+	font-weight: 700;
+	text-decoration: none;
+	font-style: italic;
 }
 
 .landing{
@@ -53,18 +60,83 @@ font-weight: bold;
 font-style: italic; 
 text-shadow: 4px 3px 0px #7A7A7A;
 }
+
 .imageDetail{
-    border-radius: 7px;
+	width: 100%;
+	outline: 8px inset #32588C;
+	outline-offset: 0px;
+	-webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 6px 6px 7px -1px rgba(0,0,0,0); 
+	box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 6px 6px 7px -1px rgba(0,0,0,0);
 }
+
 .container{
+	background-image: url('https://i.ibb.co/m69L4M8/background-container.jpg');
+	background-position: center;
+	background-size: contain;
 	width: 350px;
-	border: 2px solid #000000;
 	display: flex;
 	flex-direction: column;
 	margin: 10px;
 	height: 550px;
+	border-radius: 10px;
+	border: 2px solid #CECECE;
+	background-color: hsla(0, 0%, 0%, 0.493);
 }
+
 .image{
 	width: 320px;
+	height: 250px;
 	margin: auto;
+	border: 1px solid #CECECE;
+	box-shadow: inset -1px 3px 8px 5px #414344, 2px 5px 16px 0px #6f7174, 6px 6px 7px -1px rgba(36, 36, 36, 0);
+}
+
+.containerDetail{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.leftContainer{
+	display: flex;
+	width: 30%;
+	flex-direction: column;
+	margin: 0 15px;
+	text-align: left;
+	text-align: justify;
+}
+
+.rightContainer{
+	display: flex;
+	width: 30%;
+	flex-direction: column;
+	margin: 0 15px;
+	text-align: justify;
+}
+
+.middleContainer{
+	display: flex;
+	width: 30%;
+	flex-direction: column;
+	margin: auto 15px;
+	align-content: center;
+}
+.title{
+	width: 100%;
+	font-family: Tahoma, 'Geneva', sans-serif;
+	color: #333333;
+	text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
+	font-style: italic;
+	font-variant: normal;
+}
+.instr{
+	width: 100%;
+	margin: 0 30px;
+}
+.diets{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }

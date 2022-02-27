@@ -8,20 +8,39 @@ const RecipeDetails = (props) => {
         props.getDetails(props.recipeId)
     }, [])
     return(
-        <>
+        <div>
             { props.detail ?
-                <div>
-                    <h3>Recipe: <br></br> {props.detail.name}</h3>
-                    <h4>Diets types:<br></br>
-                        {props.detail.diets?.map(d => `${'|'} ${d} ${'|'}`)}
-                    </h4>
-                    <h4>Summary: <br></br> {props.detail.summary}</h4> 
-                    <h4>Instructions: <br></br> {props.detail.steps}</h4>
-                    <img className={s.imageDetail} src={props.detail.image}/>
+                <div className={s.containerDetail}>
+                    <h2 className={s.title}>{props.detail.name}</h2>
+
+                    <div className={s.diets}> 
+                        <h4>Dish Type:
+                            {props.detail.dish}
+                        </h4>
+                        <h4>Diets types: 
+                        {props.detail.diets?.map((d, i) => {
+                            if(i === 0) return ` ${d.name || d}`;
+                            return `, ${d.name || d}`;
+                        })}
+                        </h4>
+                        <h4>Score: {props.detail.score}</h4>
+                    </div>
+
+                    <div className={s.leftContainer}>
+                        <h4>Steps:</h4> 
+                            <p>{props.detail.steps}</p>
+                    </div>
+                    <div className={s.middleContainer}>
+                        <img className={s.imageDetail} src={props.detail.image} alt='foodNotFound' />
+                        </div>
+                    <div className={s.rightContainer}>
+                        <h4>Summary:</h4> 
+                            <p>{props.detail.summary}</p>
+                    </div>
                 </div>
                 : 'No existe la receta'
             }
-        </>
+        </div>
     )
 }
 

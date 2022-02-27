@@ -7,6 +7,12 @@ const { Recipe, conn } = require('../../src/db.js');
 const agent = session(app);
 const recipe = {
   name: 'Milanea a la napolitana',
+  summary: 'dificil',
+  score: '',
+  healthScore: '',
+  steps: '',
+  image: '',
+  dish: ''
 };
 
 describe('Recipe routes', () => {
@@ -20,5 +26,16 @@ describe('Recipe routes', () => {
     it('should get 200', () =>
       agent.get('/recipes').expect(200)
     );
+    it('Deberia devolver un error si no tiene nada la receta', (done)=>{
+        Recipe.create({})
+          .then(() => done(new Error('It requires attributes')))
+          .catch(() => done());
+          agent.get('/recipes').expect(404)
+      }
+    )
+    it('Si mandan name por query, deberia recibir recetas con ese name', () => {
+      agent.get('/recipes?name=milanea a la napolitana')
+      .expect(res => res.body.to.eql(recipe))
+    })
   });
 });

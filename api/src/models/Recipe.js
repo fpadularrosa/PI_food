@@ -1,10 +1,18 @@
 const { DataTypes } = require('sequelize');
 
+
 module.exports = sequelize => {
   sequelize.define('recipe', {
+    id:{
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+      allowNull: false
+    },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(30),
       allowNull: false,
+      validate: {len: [5, 30]}
     },
     summary: {
       type: DataTypes.TEXT,
@@ -21,7 +29,10 @@ module.exports = sequelize => {
     },
     image:{
       type: DataTypes.STRING
-    }
+    },
+    dish:{
+      type: DataTypes.STRING
+    },
   },{
     timestamps: false
   })

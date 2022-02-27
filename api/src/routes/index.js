@@ -2,6 +2,7 @@ const { Router } = require('express');
 require('dotenv').config();
 const { apiKey } = process.env;
 const fetch = require('node-fetch');
+const { Op } = require('sequelize');
 const { Recipe, Diet } = require('../db.js');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -30,16 +31,27 @@ router.get('/recipes', async (req, res) => {
             healthScore: recipe.healthScore,
             diets: recipe.diets,
             image: recipe.image,
-            dishtype: recipe.dishTypes
+            dish: recipe.dishTypes
         }
     })
-    const dataBaseRecipe = await Recipe.findAll()
+    let dataBaseRecipe = await Recipe.findAll({
+        include: Diet
+    })
+
+    dataBaseRecipe = dataBaseRecipe.map(recipe => {
+        return {
+            id: recipe.id,
+            name: recipe.name,
+            score: recipe.score,
+            healthScore: recipe.healthScore,
+            diets: recipe.diets.map(diet => diet.name),
+            image: recipe.image,
+            dish: recipe.dish
+        }
+    })
     recipes.push(...dataBaseRecipe);
-    if(!recipes) return res.sendStatus(404).json({error: 'No existe ninguna receta.'});
-    if(name){
-        const recipesName = recipes.filter(recipe => recipe.name.toLowerCase().includes(name));
-        return res.json(recipesName);
-    }
+    if(name) recipes = recipes.filter(recipe => recipe.name?.toLowerCase().includes(name.toLowerCase()));
+    if(!recipes.length) return res.status(404).json('No existe ninguna receta.');
     return res.json(recipes);
 })
 
@@ -48,17 +60,18 @@ router.get('/recipes/:idReceta', async (req, res)=> {
     //Debe traer solo los datos pedidos en la ruta de detalle de receta
     //Incluir los tipos de dieta asociados
     const { idReceta } = req.params;
-    const urlIdRecipe = `https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${apiKey}`;
-
-    const totalDetails = await fetch(urlIdRecipe).then(r => r.json());
+    let totalDetails;
+    if(idReceta.length < 32) totalDetails = await fetch(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${apiKey}`).then(data => data.json());
+    else totalDetails = await Recipe.findOne({where: {id: idReceta}, include: Diet})
     const details = {
-        name: totalDetails.title,
-        summary: totalDetails.summary.replace(/<[^>]+>/g, ''),
-        score: totalDetails.spoonacularScore,
+        name: totalDetails.title || totalDetails.name,
+        summary: totalDetails.summary.replace(/<[^>]+>/g, '') || totalDetails.summary,
+        score: totalDetails.spoonacularScore || totalDetails.score,
         healthScore: totalDetails.healthScore,
-        steps: totalDetails.instructions?.replace(/<[^>]+>/g, ''),
-        diets: totalDetails.diets,
-        image: totalDetails.image
+        steps: totalDetails.instructions?.replace(/<[^>]+>/g, '') || totalDetails.steps,
+        diets: totalDetails.diets || totalDetails.diets.map(d => d.name),
+        image: totalDetails.image,
+        dish: totalDetails.dishTypes || totalDetails.dish
     }
     res.json(details);
 })
@@ -74,16 +87,20 @@ router.post('/recipe', async (req, res) => {
     //Recibe los datos recolectados desde el formulario controlado de la ruta de creación de recetas por body
     //Crea una receta en la base de datos
 
-    const { name, summary, score, healthScore, steps, diets, image} = req.body;
-    const newRecipe = await Recipe.create({
+    const { name, summary, score, healthScore, steps, diets, image, dishtype } = req.body;
+    const newRecipe = Recipe.create({
         name,
         image,
         summary,
         score,
         healthScore,
-        steps
+        steps,
+        dish: dishtype
     })
-    newRecipe.addDiets(diets);
+    .then(recipe => diets.forEach(diet => Diet.findOne({
+        where: {name: {[Op.substring]: diet}
+    }}).then(diet => recipe.addDiet(diet.id))))
+    
     res.send(newRecipe);
 })
 

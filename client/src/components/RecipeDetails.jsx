@@ -15,7 +15,7 @@ const RecipeDetails = (props) => {
 
                     <div className={s.diets}> 
                         <h4>Dish Type:
-                            {props.detail.dish}
+                            {` ${props.detail.dish}`}
                         </h4>
                         <h4>Diets types: 
                         {props.detail.diets?.map((d, i) => {

@@ -13,7 +13,7 @@ import axios from 'axios';
 export function getRecipes(){
     return async function(dispatch){
         try {
-            const recipes = await axios.get('http://localhost:3001/recipes');
+            const recipes = await axios.get('/recipes');
             if(recipes?.data){
                 dispatch({ type: GET_RECIPES, payload: recipes.data})
             }
@@ -29,7 +29,7 @@ export function getRecipes(){
 export function getDetails(id) {
     return async function (dispatch) {
         try {
-            const details = await axios.get(`http://localhost:3001/recipes/${id}`);
+            const details = await axios.get(`/recipes/${id}`);
             if(details?.data){
                 dispatch({ type: GET_DETAIL, payload: details.data})
             }
@@ -46,7 +46,7 @@ export function getDetails(id) {
 export function getDiets() {
     return async function (dispatch) {
         try {
-            const diets = await axios.get('http://localhost:3001/types');
+            const diets = await axios.get('/types');
             if(diets?.data){
                 dispatch({type: GET_DIETS, payload: diets.data})
             }
@@ -63,7 +63,7 @@ export function getDiets() {
 export function postRecipe(input) {
     return async function (dispatch) {
         try {
-            const newRecipe = await axios.post("http://localhost:3001/recipe", input, {
+            const newRecipe = await axios.post("/recipe", input, {
                 headers:{'content-type':'application/json'}});
                 if(newRecipe?.data){
                     dispatch({ type: POST_RECIPE, payload: newRecipe.data });
@@ -85,7 +85,7 @@ export function postRecipe(input) {
 
 export const getRecipesByName = name => async dispatch => {
         try {
-            const recipesByName = await axios.get(`http://localhost:3001/recipes?name=${name}`);
+            const recipesByName = await axios.get(`/recipes?name=${name}`);
             if(recipesByName?.data){
                 dispatch({type: GET_RECIPES_BY_NAME, payload: recipesByName.data});
             }

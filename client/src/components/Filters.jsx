@@ -49,7 +49,7 @@ const Filters = () => {
          <select className={s.select} defaultValue='none' name="diets" id="diets" onChange={handleFilterBy}>
             <option disabled hidden value='none' >Diets types</option>
             {
-                diets.length > 0 ? diets.map(diet => (<option key={diet.id} value={diet.name}>{diet.name}</option>)) : <option>Loading....</option>
+                diets.length > 0 ? diets?.map(diet => (<option key={diet.id} value={diet.name}>{diet.name}</option>)) : <option>Loading....</option>
             }
         </select>
 

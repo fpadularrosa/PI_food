@@ -7,7 +7,7 @@ module.exports = {
     const urlRecipeDetails = `https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=${apiKey}&addRecipeInformation=true`;
     const recipesDetails = await fetch(urlRecipeDetails)
     .then(res => res.json())
-    .then(res => res.results)
+    .then(res => res.results);
 
     let diets = [];
     recipesDetails.forEach(recipe => {

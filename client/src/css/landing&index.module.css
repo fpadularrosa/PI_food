@@ -1,5 +1,8 @@
 .initial{
     background-image: url('https://tastebotte.com/wp-content/uploads/2020/01/our-story.jpg');
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -134,6 +137,7 @@ text-shadow: 4px 3px 0px #7A7A7A;
 	margin: 0 30px;
 }
 .diets{
+	font-size: 25px;
 	width: 100%;
 	display: flex;
 	flex-direction: row;

@@ -99,7 +99,7 @@ const CreateRecipe = props => {
 
             <div className="inputs">
                 <label className={c.label}>Steps:</label> <br></br>
-                <input className={`${c.inputs} ${errors.steps && c.danger}` } name="steps" value={state.steps} placeholder='steps...' onChange={handleChange} /> <br></br>
+                <textarea className={`${c.inputs} ${errors.steps && c.danger}` } name="steps" value={state.steps} placeholder='steps...' onChange={handleChange}></textarea> <br></br>
                 {errors.steps && <span>{errors.steps}</span>}
             </div>
 

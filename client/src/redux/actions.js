@@ -6,7 +6,8 @@ import {
     GET_RECIPES_BY_NAME,
     FILTER_RECIPES,
     ALPHABETICAL_SORT,
-    SCORE_SORT
+    SCORE_SORT,
+    HEALTH_SORT
 } from "./constants";
 import axios from 'axios';
 
@@ -115,6 +116,13 @@ export function alphabeticalSort(order) {
 export function scoreSort(score) {
     return {
         type: SCORE_SORT,
+        payload: score
+    }
+}
+
+export function healthSort(score) {
+    return {
+        type: HEALTH_SORT,
         payload: score
     }
 }

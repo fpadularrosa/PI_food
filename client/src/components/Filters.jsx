@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterBy, getDiets, alphabeticalSort, scoreSort } from '../redux/actions';
+import { filterBy, getDiets, alphabeticalSort, scoreSort, healthSort } from '../redux/actions';
 import s from '../css/SearchBar.module.css';
 
 const Filters = () => {
@@ -30,6 +30,11 @@ const Filters = () => {
         dispatch(scoreSort(e.target.value));
     }
 
+    const handleHealthySort = e => {
+        e.preventDefault();                
+        dispatch(healthSort(e.target.value));
+    }
+
     return (
         <div className={s.filters}>
 
@@ -42,6 +47,12 @@ const Filters = () => {
 
         <select className={s.select} name="numerical" defaultValue='none' onChange={handleScoreSort}>
             <option disabled hidden value='none'>Score</option>
+            <option value="asc">From Min to Max</option>
+            <option value="desc">From Max to Min</option>
+        </select>
+
+        <select className={s.select} name="healthy" defaultValue='none' onChange={handleHealthySort}>
+            <option disabled hidden value='none'>Health Score</option>
             <option value="asc">From Min to Max</option>
             <option value="desc">From Max to Min</option>
         </select>

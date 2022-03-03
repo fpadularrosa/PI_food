@@ -7,3 +7,4 @@ export const FILTER_RECIPES = 'FILTER_RECIPES';
 export const SORT_RECIPES = 'FILTER_RECIPES';
 export const ALPHABETICAL_SORT = 'ALPHABETICAL_SORT';
 export const SCORE_SORT = 'SCORE_SORT';
+export const HEALTH_SORT = 'HEALTH_SORT';

@@ -28,6 +28,7 @@ const RecipeDetails = (props) => {
                         })}
                         </h4>
                         <h4>Score: {props.detail.score}</h4>
+                        <h4>Health Score: {props.detail.healthScore}</h4>
                     </div>
 
                     <div className={s.leftContainer}>

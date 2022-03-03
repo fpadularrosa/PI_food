@@ -25,7 +25,7 @@ function Recipes(props) {
     <>
         <div className={s.container}>
             {
-            recipes?.map(recipe => <Link to={`recipe/${recipe.id}`}> <Recipe key={recipe.id} name={recipe.name} diets={recipe.diets} img={recipe.image} score={recipe.score} summary={recipe.summary} steps={recipe.steps} dish={recipe.dish}></Recipe> </Link>)
+            recipes?.map(recipe => <Link to={`recipe/${recipe.id}`}> <Recipe key={recipe.id} name={recipe.name} diets={recipe.diets} img={recipe.image} score={recipe.score} summary={recipe.summary} steps={recipe.steps} dish={recipe.dish} healthScore={recipe.healthScore}></Recipe> </Link>)
             }
         </div>
         <Pagination totalrecipes={props.recipes?.length} recipesPerPage={recipesPerPage} paginate={paginate}/>

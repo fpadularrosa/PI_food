@@ -6,7 +6,8 @@ import {
     GET_RECIPES_BY_NAME,
     FILTER_RECIPES,
     ALPHABETICAL_SORT,
-    SCORE_SORT
+    SCORE_SORT,
+    HEALTH_SORT
   } from "./constants";
 
 const initialState = {
@@ -84,6 +85,25 @@ function reducer(state = initialState, action) {
         case POST_RECIPE: 
             return {
                 ...state,
+        }
+        case HEALTH_SORT:
+          let sortedRecipesByHealthy;
+          if(action.payload === 'asc'){
+            sortedRecipesByHealthy = [...state.recipes].sort(function(a, b) {
+              if (a.healthScore > b.healthScore) return 1;
+              if (a.healthScore < b.healthScore) return -1;
+              return 0;
+            })
+          }else if(action.payload === 'desc'){
+            sortedRecipesByHealthy = [...state.recipes].sort(function(a, b) {
+              if (a.healthScore < b.healthScore) return 1;
+              if (a.healthScore > b.healthScore) return -1;
+              return 0;
+            });
+          }
+          return {
+            ...state,
+            recipes: sortedRecipesByHealthy
         }
         default: return state
     }

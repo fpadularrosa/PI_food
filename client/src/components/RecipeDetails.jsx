@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import s from '../css/landing&index.module.css';
 import { getDetails } from '../redux/actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const RecipeDetails = (props) => {
     useEffect(()=> {
@@ -10,7 +11,7 @@ const RecipeDetails = (props) => {
     return(
         <div>
         <Link to='/home'>
-            <button className={c.back}>BACK</button>
+            <button className={s.back}>BACK</button>
         </Link>
             { props.detail ?
                 <div className={s.containerDetail}>

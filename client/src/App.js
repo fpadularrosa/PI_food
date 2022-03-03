@@ -7,13 +7,16 @@ import SearchBar from './components/SearchBar';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import CreateRecipe from './components/CreateRecipe';
+import { Link } from "react-router-dom";
 
 function App() {
 
   return (
     <Provider store={store}>
     <div className="App">
-      <h1 className='henry'>Henry Food</h1> <br></br>
+    <Link to='/home'>
+        <h1 className='henry'>Henry Food</h1> <br></br>
+      </Link>
       <Switch>
         <Route exact path='/'>
           <LandingPage/>

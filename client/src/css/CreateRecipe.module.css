@@ -6,7 +6,8 @@
     align-items: center;
     height: max-content;
 }
-.inputs {
+.inputs,
+.inputStep {
     flex-wrap: wrap;
     flex-direction: row; 
     justify-content: center;
@@ -15,6 +16,12 @@
     width: 200px;
     height: 25px;
 }
+
+.inputStep{
+    width: 450px;
+    height: 200px;
+}
+
 .danger{
     border:1.5px solid Tomato;
     border-radius: 2%;

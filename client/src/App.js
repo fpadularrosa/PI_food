@@ -14,7 +14,7 @@ function App() {
   return (
     <Provider store={store}>
     <div className="App">
-    <Link style={{'text-decoration': 'none'}} to='/home'>
+    <Link style={{'textDecoration': 'none'}} to='/home'>
         <h1 className='henry'>Henry Food</h1> <br></br>
       </Link>
       <Switch>

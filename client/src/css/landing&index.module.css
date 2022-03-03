@@ -10,6 +10,14 @@
     top: 0;
 }
 
+.back{
+	border: none;
+    border-radius: 10px;
+    height: 25px;
+    font-size: 0.9rem;
+    margin-right: 1000px;
+}
+
 .name{
 	font-family: Tahoma, 'Geneva', sans-serif;
 	color: #333333;

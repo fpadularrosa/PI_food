@@ -4,6 +4,8 @@ const { Recipe, Diet } = require('./db.js');
 
 module.exports = { 
     saveDiets: async () => {
+    const dbDiets = await Diet.findAll();
+    if(dbDiets.length) return;
     const urlRecipeDetails = `https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=${apiKey}&addRecipeInformation=true`;
     const recipesDetails = await fetch(urlRecipeDetails)
     .then(res => res.json())

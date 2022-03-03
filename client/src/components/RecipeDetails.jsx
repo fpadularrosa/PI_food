@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const RecipeDetails = (props) => {
     useEffect(()=> {
-        props.getDetails(props.recipeId)
+        props.getDetails(props.recipeId);
     }, [])
     return(
         <div>

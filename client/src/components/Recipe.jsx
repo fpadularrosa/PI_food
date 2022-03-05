@@ -18,7 +18,7 @@ export default class Recipe extends Component {
                 <h4 className={s.details}>Dish Types: 
                     {this.props.dish}
                 </h4>
-                <h4>Health Score: {this.props.healthScore}</h4>
+                <h4 className={s.details}>Health Score: {this.props.healthScore}</h4>
                 <h4 className={s.details}>Score: {this.props.score}</h4>
                 <img className={s.image} src={this.props.img} alt="imgFood_notfound"/>
             </div>

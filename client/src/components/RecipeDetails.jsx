@@ -9,12 +9,9 @@ const RecipeDetails = (props) => {
         props.getDetails(props.recipeId);
     }, [])
     return(
-        <div>
-        <Link to='/home'>
-            <button className={s.back}>BACK</button>
-        </Link>
+        <div className={s.containerDetail1}>
             { props.detail ?
-                <div className={s.containerDetail}>
+                <div className={s.containerDetail2}>
                     <h2 className={s.title}>{props.detail.name}</h2>
 
                     <div className={s.diets}> 

@@ -34,11 +34,11 @@
 
 
 .details{
-	font-size: 17px;
+	font-size: 16px;
 	letter-spacing: -0.4px;
 	word-spacing: 2px;
 	color: #000000;
-	font-weight: 700;
+	font-weight: 720;
 	text-decoration: none;
 	font-style: italic;
 }
@@ -92,7 +92,7 @@ text-shadow: 4px 3px 0px #7A7A7A;
 	width: 350px;
 	display: flex;
 	flex-direction: column;
-	margin: 10px;
+	margin: 7px;
 	height: 550px;
 	border-radius: 10px;
 	border: 2px solid #CECECE;
@@ -103,7 +103,6 @@ text-shadow: 4px 3px 0px #7A7A7A;
 	width: 320px;
 	height: 250px;
 	margin: auto;
-	border: 1px solid #CECECE;
 	box-shadow: inset -1px 3px 8px 5px #414344, 2px 5px 16px 0px #6f7174, 6px 6px 7px -1px rgba(36, 36, 36, 0);
 }
 

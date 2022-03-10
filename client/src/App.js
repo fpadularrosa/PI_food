@@ -15,21 +15,23 @@ function App() {
     <Provider store={store}>
     <div className="App">
     <Link style={{'textDecoration': 'none'}} to='/home'>
-        <h1 className='henry'>Henry Food</h1> <br></br>
+        <h1 className='henry'>Henry Food</h1>
       </Link>
       <Switch>
         <Route exact path='/'>
           <LandingPage/>
-        </Route>
-        <Route path='/home'>
-          <SearchBar/>
-          <RouteIndex/>
         </Route>
         <Route exact path='/recipe/:recipeId' render={ ({ match }) => <RecipeDetails recipeId={match.params.recipeId}/> }>
         </Route>
         <Route exact path='/recipe'>
           <CreateRecipe/>
         </Route>
+        <div className='home'>
+        <Route path='/home'>
+          <SearchBar/>
+          <RouteIndex/>
+        </Route>
+        </div>
       </Switch>
     </div>
     </Provider>

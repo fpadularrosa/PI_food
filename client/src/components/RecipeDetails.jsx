@@ -1,13 +1,24 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import s from '../css/landing&index.module.css';
-import { getDetails } from '../redux/actions';
+import { getDetails, clearStore } from '../redux/actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const RecipeDetails = (props) => {
+
+    const dispatch = useDispatch();
+    
     useEffect(()=> {
         props.getDetails(props.recipeId);
     }, [])
+
+    useEffect(() => {
+        return () => {
+            dispatch(clearStore("detail"))
+        }
+    }, []); //eslint-disable-line
+
     return(
         <div className={s.containerDetail1}>
             { props.detail ?

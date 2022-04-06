@@ -7,7 +7,8 @@ import {
     FILTER_RECIPES,
     ALPHABETICAL_SORT,
     SCORE_SORT,
-    HEALTH_SORT
+    HEALTH_SORT,
+    CLEAR_STORE
   } from "./constants";
 
 const initialState = {
@@ -28,6 +29,11 @@ function reducer(state = initialState, action) {
                 ...state,
                 recipes: action.payload
         }
+        case CLEAR_STORE:
+          return {
+            ...state,
+            [action.payload]: {},
+        };
         case GET_DIETS:
             return {
             ...state,

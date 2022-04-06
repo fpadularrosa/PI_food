@@ -7,7 +7,8 @@ import {
     FILTER_RECIPES,
     ALPHABETICAL_SORT,
     SCORE_SORT,
-    HEALTH_SORT
+    HEALTH_SORT,
+    CLEAR_STORE
 } from "./constants";
 import axios from 'axios';
 
@@ -97,6 +98,13 @@ export const getRecipesByName = name => async dispatch => {
         // .then(recipe => recipe.json())
         // .then(recipe => dispatch({type: GET_RECIPES_BY_NAME, payload: recipe}))
         // .catch(err => dispatch({type: GET_RECIPES_BY_NAME, payload: err.toString()}))
+}
+
+export function clearStore(storeName) {
+    return{
+      type: CLEAR_STORE,
+      payload: storeName
+    }
 }
 
 export const filterBy = diet => {

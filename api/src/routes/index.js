@@ -4,15 +4,9 @@ const { apiKey } = process.env;
 const fetch = require('node-fetch');
 const { Op } = require('sequelize');
 const { Recipe, Diet } = require('../db.js');
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 const urlRecipes = `https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=${apiKey}&addRecipeInformation=true`;
 
 const router = Router();
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-
 
 
 router.get('/recipes', async (req, res) => {
@@ -27,7 +21,7 @@ router.get('/recipes', async (req, res) => {
         return {
             id: recipe.id,
             name: recipe.title,
-            score: recipe.spoonacularScore,
+            score: recipe.aggregateLikes,
             healthScore: recipe.healthScore,
             diets: recipe.diets,
             image: recipe.image,
@@ -66,7 +60,7 @@ router.get('/recipes/:idReceta', async (req, res)=> {
     const details = {
         name: totalDetails.title || totalDetails.name,
         summary: totalDetails.summary.replace(/<[^>]+>/g, '') || totalDetails.summary,
-        score: totalDetails.spoonacularScore || totalDetails.score,
+        score: totalDetails.aggregateLikes || totalDetails.score,
         healthScore: totalDetails.healthScore,
         steps: totalDetails.instructions?.replace(/<[^>]+>/g, '') || totalDetails.steps,
         diets: totalDetails.diets || totalDetails.diets.map(d => d.name),

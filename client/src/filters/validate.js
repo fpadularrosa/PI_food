@@ -14,7 +14,7 @@ const validate = ({name, summary, score, healthScore, steps, diets, image, disht
 
     if(!score || score === "") errors.score = <p className={c.p1}>{"A score is required"}</p>;
     else if (isNaN(Number(score))) errors.score = <p className={c.p1}>{"Score must be a number"}</p>;
-    else if(score > 100 || score < 0) errors.score = <p className={c.p1}>{"Score must be between 0 and 100"}</p>
+    else if(score > 1000 || score < 0) errors.score = <p className={c.p1}>{"Score must be between 0 and 100"}</p>
 
     if(!healthScore || healthScore === "") errors.healthScore = <p className={c.p1}>{"A health score is required"}</p>;
     else if (isNaN(Number(healthScore))) errors.healthScore = <p className={c.p1}>{"Health score must be a number"}</p>;

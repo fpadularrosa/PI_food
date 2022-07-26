@@ -1,0 +1,11 @@
+.footer{
+    background-color: rgb(13, 44, 62);
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+div{
+    color: aliceblue;
+    font-weight: 550;
+    font-size: medium;
+}

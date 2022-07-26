@@ -34,13 +34,16 @@
 
 
 .details{
-	font-size: 16px;
-	letter-spacing: -0.4px;
-	word-spacing: 2px;
 	color: #000000;
-	font-weight: 720;
-	text-decoration: none;
 	font-style: italic;
+	text-decoration: underline;
+}
+.details2{
+	font-size: 15px;
+	word-spacing: 1px;
+	color: #000000;
+	font-weight: 600;
+	font-style:oblique;
 }
 
 .landing{
@@ -89,11 +92,11 @@ text-shadow: 4px 3px 0px #7A7A7A;
 	background-image: url('https://i.ibb.co/m69L4M8/background-container.jpg');
 	background-position: center;
 	background-size: contain;
-	width: 350px;
+	width: 360px;
 	display: flex;
 	flex-direction: column;
-	margin: 7px;
-	height: 550px;
+	margin: 15px;
+	height: 525px;
 	border-radius: 10px;
 	border: 2px solid #CECECE;
 	background-color: hsla(0, 0%, 0%, 0.493);
@@ -105,7 +108,7 @@ text-shadow: 4px 3px 0px #7A7A7A;
 
 .image{
 	width: 320px;
-	height: 250px;
+	height: 260px;
 	margin: auto;
 	box-shadow: inset -1px 3px 8px 5px #414344, 2px 5px 16px 0px #6f7174, 6px 6px 7px -1px rgba(36, 36, 36, 0);
 }
@@ -118,6 +121,7 @@ text-shadow: 4px 3px 0px #7A7A7A;
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
 .leftContainer{
 	display: flex;
 	width: 30%;

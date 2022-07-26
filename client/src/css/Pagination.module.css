@@ -1,12 +1,14 @@
 .btn{
-    border: 2px solid transparent;
-    background: #CECECE;
-    margin: 0 5px;
-    border-radius: 99px;
+    border: transparent;
+    color: rgb(0, 0, 0);
+    background: #34b1ba;
+    margin: 0 5px 5px;
+    border-radius: 55px;
     height: 30px;
     width: 30px;
 }
 .btn:hover{
     cursor: pointer;
-    border: 2px solid #303030;
+    border: 2px solid #000000;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1);
 }

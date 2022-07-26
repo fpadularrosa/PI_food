@@ -16,7 +16,6 @@ const SearchBar = () => {
 
 const handleSubmit = e => {
     e.preventDefault();
-
     dispatch(getRecipesByName(nombre));
     setNombre('');
 }

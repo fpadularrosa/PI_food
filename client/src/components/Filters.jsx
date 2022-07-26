@@ -46,7 +46,7 @@ const Filters = () => {
         </select>
 
         <select className={s.select} name="numerical" defaultValue='none' onChange={handleScoreSort}>
-            <option disabled hidden value='none'>Score</option>
+            <option disabled hidden value='none'>Likes</option>
             <option value="asc">From Min to Max</option>
             <option value="desc">From Max to Min</option>
         </select>

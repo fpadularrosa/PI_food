@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import s from '../css/landing&index.module.css';
 import { getDetails, clearStore } from '../redux/actions';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 const RecipeDetails = (props) => {
 

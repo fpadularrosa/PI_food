@@ -75,7 +75,7 @@ const CreateRecipe = props => {
 
             <div className="inputs">
                 <label className={c.label}>Dish type:</label> <br></br>
-                <input className={`${c.inputs} ${errors.image && c.danger}` } name="dishtype" value={state.dishtype} placeholder='dish type...' onChange={handleChange} /> <br></br>
+                <input className={`${c.inputs} ${errors.dishtype && c.danger}` } name="dishtype" value={state.dishtype} placeholder='dish type...' onChange={handleChange} /> <br></br>
                 {errors.dishtype && <span>{errors.dishtype}</span>}
             </div>
 

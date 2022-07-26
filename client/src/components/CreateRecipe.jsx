@@ -104,20 +104,18 @@ const CreateRecipe = props => {
             </div>
 
             <div className="inputs">
-                <label className={c.label}>Image:</label> <br></br>
+                <label className={c.label}>Image:</label> <br/>
                 <input className={`${c.inputs} ${errors.image && c.danger}` } name="image" value={state.image} placeholder='url...' onChange={handleChange} /> <br></br>
                 {errors.image && <span>{errors.image}</span>}
             </div>
 
             <div className="inputs">
-                    <p>Diets:</p>
+                    <label className={c.label}>Diets:</label> <br/>
                     <select className={c.inputs} name='diets' onChange={handleSelectChange}>
                         {props.diets?.map(diet => <option key={diet.id} value={diet.name}>{diet.name}</option>)}                        
                     </select>
                     {errors.diets && <span>{errors.diets}</span>}
                 </div>
-
-
                 <button className={c.btn} type='submit' disabled={Object.keys(errors).length > 0}>Create recipe!</button>
         </form>
         </div>

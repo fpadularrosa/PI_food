@@ -18,10 +18,7 @@ export default class Recipe extends Component {
                             return `, ${d}`;
                         })}
                         <br/>
-                        Dish Types: {this.props.dish?.map((d, i) => {
-                            if(i === 0) return ` ${d}`;
-                            return `, ${d}`;
-                        })}
+                        Dish Types: {this.props.dish}
                         <br/>
                         Health Score: {this.props.healthScore}
                         <br/>
